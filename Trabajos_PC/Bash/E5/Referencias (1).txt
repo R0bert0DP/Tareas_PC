@@ -1,0 +1,4 @@
+# Referencias:
+# https://www.baeldung.com/curl-rest
+# https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/
+# https://haveibeenpwned.com/API/v3

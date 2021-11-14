@@ -1,0 +1,21 @@
+/bin/bash
+# Integrantes:
+# Alejandro Cavazos Valdés
+# Luis Roberto Diaz Pineda
+
+function API { 
+  read -p "Give me your API Key: " key
+  while IFS= read -r email
+  do
+   echo -e "\n" $email
+   (curl -si https://haveibeenpwned.com/api/v3/breachedaccount/"$email" -H 'hibp-api-key:'$key)
+  done < "email.txt"
+}
+
+API 
+
+# Referencias:
+# https://www.baeldung.com/curl-rest
+# https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/
+# https://haveibeenpwned.com/API/v3
+

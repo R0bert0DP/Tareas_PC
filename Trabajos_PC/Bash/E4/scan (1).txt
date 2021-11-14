@@ -1,0 +1,10 @@
+Node with IP: 192.168.100.1 is up.
+Node with IP: 192.168.100.6 is up.
+Node with IP: 192.168.100.7 is up.
+Node with IP: 192.168.100.8 is up.
+135 open
+139 open
+443 open
+445 open
+119 open
+143 open

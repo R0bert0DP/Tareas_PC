@@ -1,0 +1,46 @@
+#!/bin/bash
+#Funcion para escanear puertos
+
+function portscan() {
+
+for ((counter=10; counter<=500; counter++))
+do
+    (echo >/dev/tcp/$i/$counter) > /dev/null 2>&1 && echo "$counter open"
+done
+}
+
+#función escanear red local
+function is_alive_ping() {
+
+  ping -c 1 $i > /dev/null 2>&1
+  [ $? -eq 0 ] && echo "Node with IP: $i is up." | tee scan.txt && portscan $i | tee scan.txt
+
+}
+
+
+#función detecar os
+function osdetect() {
+  if type -t wevtutil &> /dev/null
+then
+    OS=MSWin
+elif type -t scutil &> /dev/null
+then
+    OS=macOS
+else
+    OS=Linux
+fi
+
+echo "Sistema operativo: " $OS
+}
+
+osdetect
+
+for i in 192.168.100.{1..255}
+  do
+    is_alive_ping $i & disown
+  done
+
+
+
+   
+
